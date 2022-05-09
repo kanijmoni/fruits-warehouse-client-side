@@ -7,6 +7,7 @@ const ProductDetail = () => {
     const { productId } = useParams();
     return (
         <h2 className='text-center'>Product Detail:{productId}</h2>
+       
     );
 };
 

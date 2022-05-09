@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Product from '../Home/Product/Product';
 
 const Inventory = () => {
@@ -22,6 +23,11 @@ const Inventory = () => {
                             product={product}
                         ></Product>
                         )}
+                </div>
+                <div className='text-center'>
+                    <Link to="/productDetail">
+                        <button className='btn-btn-primary'>Restock</button>
+                    </Link>
                 </div>
             </div>
 
