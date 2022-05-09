@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Product from '../Product/Product';
 import './Products.css';
 
@@ -11,6 +12,12 @@ const Products = () => {
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])
+
+    const navigate = useNavigate();
+
+    const navigateToInventory = event => {
+        navigate(`/inventory`);
+    }
 
     return (
         <div className='container'>
@@ -27,7 +34,7 @@ const Products = () => {
                 }
             </div>
             <div className='manag-btn'>
-                <button className='manage-btn'>Manage Inventories</button>
+                <button onClick={navigateToInventory} className='manage-btn'>Manage Inventories</button>
             </div>
         </div>
     );
