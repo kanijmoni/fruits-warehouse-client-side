@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
-import './Products.css';
 
-const Products = () => {
+const NewArrivels = () => {
 
     const [products, setProducts] = useState([]);
 
@@ -16,21 +15,18 @@ const Products = () => {
         <div>
             <div className='products-title'>
                 <p><bo><i>"Fresh From Our Farmhouse"</i></bo></p>
-                <h1>Inventory Products</h1>
+                <h1>New Arrivels</h1>
             </div>
             <div className='products-container'>
                 {
-                    products.slice(2).map(product => <Product
+                    products.slice(6).map(product => <Product
                         key={product.id}
                         product={product}
-                    ></Product>)
-                }
-            </div>
-            <div className='manag-btn'>
-                <button className='manage-btn'>Manage Inventories</button>
+                    ></Product>
+                    )}
             </div>
         </div>
     );
 };
 
-export default Products;
+export default NewArrivels;
