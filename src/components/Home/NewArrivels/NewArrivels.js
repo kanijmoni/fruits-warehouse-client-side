@@ -12,9 +12,9 @@ const NewArrivels = () => {
     }, [])
 
     return (
-        <div>
+        <div className='container'>
             <div className='products-title'>
-                <p><bo><i>"Fresh From Our Farmhouse"</i></bo></p>
+                <p><i>"Fresh From Our Farmhouse"</i></p>
                 <h1>New Arrivels</h1>
             </div>
             <div className='products-container'>

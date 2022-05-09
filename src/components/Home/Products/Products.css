@@ -1,19 +1,20 @@
-
-.products-title{
+.products-title {
     text-align: center;
     color: darkblue;
     padding-top: 50px;
 }
-.products-container{
+
+.products-container {
     display: grid;
-    grid-template-columns: repeat(3 ,1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     text-align: center;
-    padding: 15px;
 }
+
 .manag-btn {
     text-align: center;
     padding-bottom: 35px;
+    padding-top: 30px;
 }
 
 .manage-btn {
@@ -22,16 +23,17 @@
     color: white;
     border: 1px;
     border-radius: 5px;
+    padding: 10px;
 }
 
- @media only screen and (max-width:576px){
-    .products-container{
+@media only screen and (max-width:576px) {
+    .products-container {
         grid-template-columns: repeat(1, 1fr);
     }
- }
+}
 
- @media only screen and (min-width:577px) and (max-width:992px){
-     .products-container{
-         grid-template-columns: repeat(2, 1fr);
-     }
- }
+@media only screen and (min-width:577px) and (max-width:992px) {
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
