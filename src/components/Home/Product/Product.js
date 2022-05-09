@@ -3,7 +3,7 @@ import React from 'react';
 import './Product.css'
 
 const Product = ({ product }) => {
-    const { name, img, price, quantity, description } = product;
+    const { name, img, price, quantity, description, supplier } = product;
     return (
         <div className='product'>
             <img className='w-100' src={img} alt="" />
@@ -11,7 +11,8 @@ const Product = ({ product }) => {
             <p>Description:{description}</p>
             <p>Price:{price}</p>
             <p>{quantity}</p>
-            <button className='update-btn'>Stok Update</button>
+            <p>Supplier-Name:{supplier}</p>
+            <button className='update-btn'>Stock Update</button>
         </div>
     );
 };
