@@ -14,6 +14,7 @@ import Checkout from './components/Chackout/AddItem';
 import RequireAuth from './components/Login/RequireAuth/RequireAuth';
 import AddItem from './components/Chackout/AddItem';
 import MyItems from './components/Chackout/MyItems';
+import About from './components/About/About';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
             <MyItems></MyItems>
           </RequireAuth>
         }></Route>
+        <Route path='/about' element={<About></About>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
         <Route></Route>
       </Routes>

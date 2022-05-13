@@ -16,7 +16,7 @@ const Register = () => {
         navigate('/login');
     }
 
-    if (user){
+    if (user) {
         navigate('/home');
     }
 
@@ -26,20 +26,21 @@ const Register = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        createUserWithEmailAndPassword(email, password);
+        createUserWithEmailAndPassword(name, email, password);
     }
 
 
     return (
         <div className='register-form'>
-            <h2 className='text-center'>Please Register</h2>
+            <h2 style={{ textAlign: 'center' }}>Please Register</h2>
             <form onSubmit={handleRegister}>
+                <input type='text' name="name" id="" placeholder='Your Name' />
                 <input type='text' name="email" id="" placeholder='Email Address' required />
                 <input type='password' name="password" id="" placeholder='Password' required />
                 <input type='submit' value="Register" />
 
             </form>
-            <p>Already Have an Account<Link to='/login' className='text-danger pe-auto text-decoration-none' onClick={navigateLogin}>Please Login</Link></p>
+            <p>Already Have an Account? <Link to='/login' className='text-danger pe-auto text-decoration-none' onClick={navigateLogin}>Please Login</Link></p>
         </div>
     );
 };
