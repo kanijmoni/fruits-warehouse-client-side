@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom';
 
 const ProductDetail = () => {
 
-    const { productId } = useParams();
+    const { product } = useParams();
     return (
-        <h2 className='text-center'>Product Detail:{productId}</h2>
-       
+        <h2 className='text-center'>Product Detail:{product}</h2>
+
     );
 };
 

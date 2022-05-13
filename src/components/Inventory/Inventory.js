@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Product from '../Home/Product/Product';
 
 const Inventory = () => {
@@ -10,6 +10,11 @@ const Inventory = () => {
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])
+
+    const navigate = useNavigate();
+    const navigateToProductDetail = _id => {
+        navigate(`/product/${_id}`);
+    }
     return (
         <div>
             <div className='container'>
@@ -24,10 +29,8 @@ const Inventory = () => {
                         ></Product>
                         )}
                 </div>
-                <div className='text-center'>
-                    <Link to="/productDetail">
-                        <button className='btn-btn-primary'>Restock</button>
-                    </Link>
+                <div className='text-center mt-10'>
+                    <button onClick={() => navigateToProductDetail()} className='btn-btn-primary'>Restock</button>
                 </div>
             </div>
 

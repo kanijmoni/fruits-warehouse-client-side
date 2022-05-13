@@ -16,11 +16,11 @@ const Products = () => {
     const navigate = useNavigate();
 
     const navigateToInventory = event => {
-        navigate(`/inventory`);
+        navigate('/inventory');
     }
 
     return (
-        <div className='container'>
+        <div id="inventory" className='container'>
             <div className='products-title'>
                 <p><i>"Fresh From Our Farmhouse"</i></p>
                 <h1>Inventory Products</h1>

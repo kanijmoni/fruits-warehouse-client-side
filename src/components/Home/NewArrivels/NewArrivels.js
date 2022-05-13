@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Product from '../Product/Product';
+import NewArrivel from '../NewArrivel/NewArrivel';
+
 
 const NewArrivels = () => {
 
@@ -19,10 +20,10 @@ const NewArrivels = () => {
             </div>
             <div className='products-container'>
                 {
-                    products.map(product => <Product
+                    products.map(product => <NewArrivel
                         key={product._id}
                         product={product}
-                    ></Product>
+                    ></NewArrivel>
                     )}
             </div>
         </div>

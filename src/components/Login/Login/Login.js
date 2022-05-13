@@ -4,6 +4,8 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -31,6 +33,13 @@ const Login = () => {
     }
     const navigateRegister = event => {
         navigate('/register');
+        const email = emailRef.current.value;
+        if (email) {
+            toast('Send email');
+        }
+        else {
+            toast('please enter your email address');
+        }
     }
 
     return (
@@ -51,6 +60,7 @@ const Login = () => {
                 </Form.Group>
                 <p>New to Fresh Fruit <Link to='/register' className='text-danger pe-auto text-decoration-none' onClick={navigateRegister}>Please Register</Link></p>
                 <SocialLogin></SocialLogin>
+                <ToastContainer></ToastContainer>
             </Form>
         </div>
     );
