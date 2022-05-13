@@ -1,21 +1,27 @@
 import React from 'react';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import google from '../../../images/google-icon.png';
+import github from '../../../images/github.png';
+import Loading from '../Loading/Loading';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
     const navigate = useNavigate();
     let errorElement;
-    if (error) {
-
-        errorElement = <div>
-            <p className='text-danger'>Error: {error.message}</p>
-        </div>
-
+    if (loading || loading1) {
+        return <Loading></Loading>
     }
 
-    if (user) {
+    if (error || error1) {
+        errorElement = <div>
+            <p className='text-danger'>Error: {error?.message}{error1?.message}</p>
+        </div>
+    }
+
+    if (user || user1) {
         navigate('/home');
     }
 
@@ -26,10 +32,23 @@ const SocialLogin = () => {
                 <p className='mt-3 px-2'>or</p>
                 <div style={{ height: '1px' }} className='bg-primary w-50'>
                 </div>
-                {errorElement}
             </div>
-            <div>
-                <button className='btn btn-primary text-center'>Google Sign In</button>
+            {errorElement}
+            <div className='text-center'>
+                <button
+                    onClick={() => signInWithGoogle()}
+                    className='btn btn-info w-50 my-2 text-center'>
+                    <img style={{ width: '30px' }} src={google} alt="" />
+                    <span className='px-2'>Google Sign In</span>
+                </button>
+            </div>
+            <div className='text-center'>
+                <button
+                    onClick={() => signInWithGithub()}
+                    className='btn btn-info w-50 text-center'>
+                    <img style={{ width: '30px' }} src={github} alt="" />
+                    <span className='px-2'>Github Sign In</span>
+                </button>
             </div>
 
         </div>
