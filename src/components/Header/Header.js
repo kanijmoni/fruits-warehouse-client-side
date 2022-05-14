@@ -17,7 +17,7 @@ const Header = () => {
             <>
                 <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
                     <Container>
-                        <Navbar.Brand as={Link} to="/">Fresh Fruit</Navbar.Brand>
+                        <Navbar.Brand as={Link} to="/home">Fresh Fruit</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="me-auto">
@@ -32,7 +32,16 @@ const Header = () => {
                                 </NavDropdown>
                             </Nav>
                             <Nav>
-                                <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
+                                <Nav.Link as={Link} to="myItems">My Items</Nav.Link>
+                                <Nav>
+                                    <Nav.Link as={Link} to="/addItem">Add Item</Nav.Link>
+                                </Nav>
+                                <Nav>
+                                    <Nav.Link as={Link} to="/manageItems">Manage Items</Nav.Link>
+                                </Nav>
+                                <Nav>
+                                    <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
+                                </Nav>
                                 <Nav>
                                     <Nav.Link as={Link} to="/about">About</Nav.Link>
                                 </Nav>

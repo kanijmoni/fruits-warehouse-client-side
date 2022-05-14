@@ -10,11 +10,11 @@ import ProductDetail from './components/ProductDetail/ProductDetail';
 import Inventory from './components/Inventory/Inventory';
 import Login from './components/Login/Login/Login';
 import Register from './components/Login/Register/Register';
-import Checkout from './components/Chackout/AddItem';
 import RequireAuth from './components/Login/RequireAuth/RequireAuth';
-import AddItem from './components/Chackout/AddItem';
-import MyItems from './components/Chackout/MyItems';
 import About from './components/About/About';
+import ManageItems from './components/ManageItems/ManageItems';
+import AddItem from './components/AddItem/AddItem';
+import MyItems from './components/MyItems/MyItems';
 
 
 function App() {
@@ -28,21 +28,25 @@ function App() {
             <ProductDetail></ProductDetail>
           </RequireAuth>
         }></Route>
-        <Route path="/inventory" element={<Inventory></Inventory>}></Route>
+        <Route path="/inventory" element={
+          <RequireAuth>
+            <Inventory></Inventory>
+          </RequireAuth>
+        }></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
-        <Route path="/checkout" element={
+        <Route path="/manageItems" element={
           <RequireAuth>
-            <Checkout></Checkout>
+            <ManageItems></ManageItems>
           </RequireAuth>
         }></Route>
-        <Route path="/additem" element={
+        <Route path="/addItem" element={
           <RequireAuth>
             <AddItem></AddItem>
           </RequireAuth>
         }></Route>
-        <Route path="/myItem" element={
+        <Route path="/myItems" element={
           <RequireAuth>
             <MyItems></MyItems>
           </RequireAuth>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Product from '../Home/Product/Product';
+import Inventories from './Inventories';
+import '../Home/Products/Products.css';
 
 const Inventory = () => {
     const [products, setProducts] = useState([]);
@@ -12,8 +13,8 @@ const Inventory = () => {
     }, [])
 
     const navigate = useNavigate();
-    const navigateToProductDetail = _id => {
-        navigate(`/product/${_id}`);
+    const navigateToAddItem = _id => {
+        navigate('/addItem');
     }
     return (
         <div>
@@ -21,16 +22,16 @@ const Inventory = () => {
                 <div className='products-title'>
                     <h1>All Items</h1>
                 </div>
+                <div className='mb-10'>
+                    <button onClick={() => navigateToAddItem()} className='btn btn-primary mb-10'>Add New Item</button>
+                </div>
                 <div className='products-container'>
                     {
-                        products.map(product => <Product
+                        products.map(product => <Inventories
                             key={product._id}
                             product={product}
-                        ></Product>
+                        ></Inventories>
                         )}
-                </div>
-                <div className='text-center mt-10'>
-                    <button onClick={() => navigateToProductDetail()} className='btn-btn-primary'>Restock</button>
                 </div>
             </div>
 
