@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Product from '../Product/Product';
 import './Products.css';
 
@@ -16,7 +16,7 @@ const Products = () => {
     const navigate = useNavigate();
 
     const navigateToInventory = event => {
-        navigate('/inventory');
+        navigate(`/inventory`);
     }
 
     return (
@@ -34,7 +34,9 @@ const Products = () => {
                 }
             </div>
             <div className='manag-btn'>
-                <button onClick={navigateToInventory} className='manage-btn'>Manage Inventories</button>
+                <Link to={`/inventory`}>
+                    <button onClick={navigateToInventory} className='manage-btn'>Manage Inventories</button>
+                </Link>
             </div>
         </div>
     );

@@ -14,7 +14,7 @@ const ProductDetail = () => {
             .then(res => res.json())
             .then(data => setProduct(data));
 
-    }, [])
+    }, [productId]);
 
     const navigate = useNavigate();
 
@@ -25,7 +25,9 @@ const ProductDetail = () => {
     return (
         <div>
             <h2 className='text-center'>Product Detail:{product.name}</h2>
-
+            <form>
+                <input type="text" name='name' placeholder='name' required />
+            </form>
 
             <div className='text-center'>
                 <button onClick={navigateToInventory} className='btn btn-primary'>Manage Inventories</button>

@@ -8,7 +8,7 @@ import Loading from '../Loading/Loading';
 const RequireAuth = ({ children }) => {
     const [user, loading] = useAuthState(auth);
     const location = useLocation();
-    const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
+    const [sendEmailVerification] = useSendEmailVerification(auth);
     if (loading) {
         return <Loading></Loading>
     }
@@ -22,7 +22,7 @@ const RequireAuth = ({ children }) => {
             <button className='btn btn-primary' onClick={async () => {
                 await sendEmailVerification();
                 toast('Send email');
-            }}></button>
+            }}>Send Email</button>
         </div>
     }
     return children;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import './Register.css';
 import auth from '../../../firebase.init';
@@ -16,6 +16,10 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating] = useUpdateProfile(auth);
 
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+
     const navigate = useNavigate();
     const navigateLogin = () => {
         navigate('/login');
@@ -26,7 +30,7 @@ const Register = () => {
     }
 
     if (user) {
-        navigate('/home');
+        navigate(from, { replace: true });
     }
 
     const handleRegister = async (event) => {

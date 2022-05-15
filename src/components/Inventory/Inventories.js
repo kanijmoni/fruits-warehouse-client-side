@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Home/Product/Product.css';
 
-const Inventories = (product) => {
+const Inventories = ({ product }) => {
     const { _id, name, img, price, quantity, description, supplier } = product;
     const navigate = useNavigate();
     const navigateToProductDetail = id => {
