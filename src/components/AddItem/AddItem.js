@@ -25,6 +25,7 @@ const AddItem = () => {
                 <input className='mb-3' placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />
                 <textarea className='mb-3' placeholder='Description' {...register("description")} />
                 <input className='mb-3' placeholder='Price' type="number" {...register("price")} />
+                <input className='mb-3' placeholder='Quantity' type="number" {...register("quantity")} />
                 <input className='mb-3' placeholder='Photo URL' type="text" {...register("img")} />
                 <input type="Submit" value='Add Item' />
             </form>
