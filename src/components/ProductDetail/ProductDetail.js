@@ -12,7 +12,7 @@ const ProductDetail = () => {
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        const url = `http://localhost:5000/product/${productId}`;
+        const url = `https://calm-wildwood-37585.herokuapp.com/product/${productId}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())
@@ -25,11 +25,11 @@ const ProductDetail = () => {
             email: user.email,
             product: product.name,
             productId: productId,
-            address: event.target.address.value,
-            phone: event.target.phone.value
+            address: event.target.address?.value,
+            phone: event.target.phone?.value
         }
 
-        axios.post(`http://localhost:5000/order`, order)
+        axios.post(`https://calm-wildwood-37585.herokuapp.com/order`, order)
             .then(response => {
                 const { data } = response;
                 if (data.insertId) {

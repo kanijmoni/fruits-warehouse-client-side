@@ -12,8 +12,8 @@ const MyItems = () => {
     useEffect(() => {
 
         const getOrders = async () => {
-            const email = user.email;
-            const url = `http://localhost:5000/order?email=${email}`;
+            const email = user?.email;
+            const url = `https://calm-wildwood-37585.herokuapp.com/order?email=${email}`;
             try {
                 const { data } = await axiosPrivate.get(url);
                 setOrders(data);
@@ -33,7 +33,7 @@ const MyItems = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://calm-wildwood-37585.herokuapp.com/order/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -49,14 +49,11 @@ const MyItems = () => {
         <div className='text-center'>
             <h2 className='text-center text-primary'>My Items:{orders.length}</h2>
             <div className='d-flex mt-5'>
-                <div>
-                    <img className='mx-3 w-50' src={orders.img} alt='' />
-                </div>
-                <div>
-                    <h5>Name:{orders.name}</h5>
+                <div className='text-center mx-auto'>
                     {
                         orders.map(order => <div key={order._id}>
-                            <h5>{order.name} <button className='btn btn-primary text-white' onClick={() => handleDelete(order._id)}>Delete</button></h5>
+                            <h5>Email Address:{order.email}</h5>
+                            <h4 className='text-primary'>Selected Item:{order.product} <button className='btn btn-info text-white' onClick={() => handleDelete(order._id)}>Delete</button></h4>
                         </div>)
                     }
                 </div>

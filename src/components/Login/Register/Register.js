@@ -5,6 +5,7 @@ import './Register.css';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../Loading/Loading';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
     const [agree, setAgree] = useState(false);
@@ -15,7 +16,7 @@ const Register = () => {
         // error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating] = useUpdateProfile(auth);
-
+    const [token] = useToken(user);
     const location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
@@ -28,8 +29,7 @@ const Register = () => {
     if (loading || updating) {
         return <Loading></Loading>
     }
-
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
 

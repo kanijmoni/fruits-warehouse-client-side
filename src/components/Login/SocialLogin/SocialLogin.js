@@ -5,10 +5,12 @@ import auth from '../../../firebase.init';
 import google from '../../../images/google-icon.png';
 import github from '../../../images/github.png';
 import Loading from '../Loading/Loading';
+import useToken from '../../hooks/useToken';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
+    const [token] = useToken(user || user1);
     const navigate = useNavigate();
 
     const location = useLocation();
@@ -26,7 +28,7 @@ const SocialLogin = () => {
         </div>
     }
 
-    if (user || user1) {
+    if (token) {
         navigate(from, { replace: true });
     }
 
