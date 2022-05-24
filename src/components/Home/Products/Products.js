@@ -27,7 +27,7 @@ const Products = () => {
             </div>
             <div className='products-container'>
                 {
-                    products.slice(2).map(product => <Product
+                    products.slice(3).map(product => <Product
                         key={product._id}
                         product={product}
                     ></Product>)

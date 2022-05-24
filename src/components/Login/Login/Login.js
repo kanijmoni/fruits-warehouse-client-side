@@ -28,7 +28,7 @@ const Login = () => {
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     if (user) {
-        navigate(from, { replace: true });
+
     }
     if (error) {
         errorElement = <div>
@@ -46,6 +46,7 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password);
         const { data } = await axios.post('http://localhost:5000/login', { email });
         localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, { replace: true });
     }
     const navigateRegister = event => {
         navigate('/register');

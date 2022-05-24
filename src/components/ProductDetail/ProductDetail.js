@@ -48,7 +48,7 @@ const ProductDetail = () => {
         <div className='w-50 mx-auto'>
             <div className='d-flex mt-5'>
                 <div>
-                    <img className='' src={product.img} alt='' />
+                    <img className='mx-5' src={product.img} alt='' />
                 </div>
                 <div>
                     <p><b>Product Detail:{product.name}</b></p>

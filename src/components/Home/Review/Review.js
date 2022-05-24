@@ -4,7 +4,7 @@ import './Review.css'
 const Review = () => {
     return (
         <div className='clients-says'>
-            <h2>What's client say ?</h2>
+            <h2>What's our client say ?</h2>
         </div>
     );
 };
