@@ -1,5 +1,11 @@
 # Getting Started with Create React App
 
+Live Website Link:(https://fresh-fruit-warehouse-9bd02.web.app/)
+
+this site is based on a warehouse.It has 6 sections in it's home page-header,banner,inventory item,new arrivels,reviews and at last footer.in every inventory item has a button which navigate to the product detail page where places the full description about the item.in the inventory page here shown all of the item which are available.this pages are protected page.when a user logged in he/she can see extra 4 more options-my item,add item,manage items and sign out.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
