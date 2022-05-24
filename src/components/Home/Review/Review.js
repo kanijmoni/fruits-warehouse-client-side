@@ -3,8 +3,8 @@ import './Review.css'
 
 const Review = () => {
     return (
-        <div className='clients-says'>
-            <h2>What's our client say ?</h2>
+        <div className='text-center mt-5'>
+            <h2 className='text-primary'>Reviews of our visitors</h2>
         </div>
     );
 };
